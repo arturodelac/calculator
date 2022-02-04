@@ -19,6 +19,7 @@ html {
 #erase {
     height: 100%;
     width: 20%;
+    color: #F24405;
 }
 
 #erase:hover {
@@ -34,7 +35,7 @@ html {
 }
 
 .big-container {
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     display: flex;
 }
@@ -88,6 +89,11 @@ button {
     font-size: 4rem;
     background-color: white;
     border-style: none;
+    color: white;
+}
+
+.operand {
+    color: #0476D9;
 }
 
 .operand:hover {
