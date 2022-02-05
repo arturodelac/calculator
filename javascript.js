@@ -89,16 +89,19 @@ function calculate() {
                 value = division;
                 break;
             }
-
-
-
-
-
-
     }
+}
 
+//erase 
 
+const eraseButton = document.querySelector('#erase');
+eraseButton.addEventListener('click', () => erase());
 
-
-
+function erase() {
+    result.textContent = '';
+    value = '';
+    value2 = '';
+    operand = '';
+    operand2 = '';
+    console.log(erase);
 }
