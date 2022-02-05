@@ -4,7 +4,7 @@ html {
 }
 
 .background {
-    background-color: #F29F05;
+    background-color: #F0F0F0;
     width: 20%;
     height: 100%;
 }
@@ -143,5 +143,10 @@ button:hover {
     }
     .result {
         font-size: 4rem;
+    }
+    .big-container {
+        width: 100vw;
+        height: -webkit-fill-available;
+        display: flex;
     }
 }
