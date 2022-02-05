@@ -107,14 +107,12 @@ button:hover {
     background-color: #6F7302;
     color: white;
     transition: .2s;
-    font-size: 5rem;
 }
 
 .operand:hover {
     background-color: #0476D9;
     color: white;
     transition: .2s;
-    font-size: 5rem;
 }
 
 .operands-container {
@@ -139,5 +137,11 @@ button:hover {
     .ui {
         padding: 16px 32px;
         width: 100%;
+    }
+    button {
+        font-size: 3rem;
+    }
+    .result {
+        font-size: 4rem;
     }
 }
