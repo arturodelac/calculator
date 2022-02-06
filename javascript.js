@@ -37,6 +37,8 @@ let value = '';
 let value2 = '';
 let operand = '';
 let operand2 = '';
+let operand3 = '';
+let operandCounter = 0;
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => button.addEventListener('click', () => {
     if (isNaN(button.value) && button.value != '.') {
@@ -44,19 +46,31 @@ buttons.forEach((button) => button.addEventListener('click', () => {
         if (operand == '=') {
             calculate();
             result.textContent = value;
-            console.log(value)
+            console.log(value);
+            operandCounter = 0;
         } else {
-            operand2 = button.value;
-            console.log("operand2" + operand2);
-            result.textContent = operand2;
+            if (operandCounter >= 1) {
+                calculate();
+                result.textContent = value;
+                console.log('first if');
+                value2 = ''
+                    //operandCounter = 0;   
+
+            } else {
+                operand2 = button.value;
+                console.log("second if");
+                result.textContent = operand2;
+                if (operandCounter = 0) { operandCounter = 1; } else { operandCounter++ };
+            }
+
         }
     } else if (operand == '') {
         value = value + button.value;
         result.textContent = value;
-        console.log("value" + value)
+        console.log("value" + value);
     } else if (operand != '' && operand != '=') {
         value2 = value2 + button.value;
-        result.textContent = value2;;
+        result.textContent = value2;
 
 
     }
@@ -64,31 +78,39 @@ buttons.forEach((button) => button.addEventListener('click', () => {
 
 //evaluate 2 numbers at a time
 function calculate() {
-    value = parseFloat(value);
-    value2 = parseFloat(value2);
+
+    if (value2 == '') {
+        erase();
+    } else {
+        value = parseFloat(value);
+        value2 = parseFloat(value2);
 
 
-    switch (operand2) {
-        case '+':
-            let sum = add(value, value2);
-            value = sum;
-            break;
-        case '-':
-            let substract = substract(value, value2);
-            value = substract;
-            break;
-        case '/':
-            if (value2 == 0) {
-                alert("You cannot divide by 0!");
-                value = '';
-                operand = '';
+        switch (operand2) {
+            case '+':
+                let sum = add(value, value2);
+                value = sum;
                 value2 = '';
                 break;
-            } else {
-                let division = divide(value, value2);
-                value = division;
+            case '-':
+                let substract = substract(value, value2);
+                value = substract;
+                value2 = '';
                 break;
-            }
+            case '/':
+                if (value2 == 0) {
+                    alert("You cannot divide by 0!");
+                    value = '';
+                    operand = '';
+                    value2 = '';
+                    break;
+                } else {
+                    let division = divide(value, value2);
+                    value = division;
+                    value2 = '';
+                    break;
+                }
+        }
     }
 }
 
