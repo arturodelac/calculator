@@ -17,12 +17,12 @@ function substract(...args) {
 }
 
 function multiply(...args) {
-    const sumArray = Array.from(args);
-    console.log(sumArray);
-    const sum = sumArray.reduce((total, argument) => {
+    const multiplyArray = Array.from(args);
+    console.log(multiplyArray);
+    const multiply = multiplyArray.reduce((total, argument) => {
         return total * argument;
     }, 1)
-    return sum;
+    return multiply;
 }
 
 function divide(first, second) {
@@ -93,8 +93,13 @@ function calculate() {
                 value2 = '';
                 break;
             case '-':
-                let substract = substract(value, value2);
-                value = substract;
+                let substraction = substract(value, value2);
+                value = substraction;
+                value2 = '';
+                break;
+            case '*':
+                let multiple = multiply(value, value2);
+                value = multiple;
                 value2 = '';
                 break;
             case '/':
@@ -110,6 +115,7 @@ function calculate() {
                     value2 = '';
                     break;
                 }
+
         }
     }
 }
