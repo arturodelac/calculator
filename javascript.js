@@ -34,7 +34,7 @@ let value = '';
 let value2 = '';
 let operand = '';
 let operand2 = '';
-let operand3 = '';
+let dotCounter = 0;
 let operandCounter = 0;
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => button.addEventListener('click', () => {
@@ -59,9 +59,17 @@ buttons.forEach((button) => button.addEventListener('click', () => {
 
         }
     } else if (operand == '') {
-        value = value + button.value;
-        result.textContent = value;
+        if (button.value == '.') { dotCounter++ }
+        if (dotCounter >= 2) {} else {
+            value = value + button.value;
+            result.textContent = value;
+        }
     } else if (operand != '' && operand != '=') {
+        if (button.value == '.') { dotCounter++ }
+        if (dotCounter >= 2) {} else {
+            value = value + button.value;
+            result.textContent = value;
+        }
         value2 = value2 + button.value;
         result.textContent = value2;
 
