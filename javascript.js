@@ -1,6 +1,5 @@
 function add(...args) {
     const sumArray = Array.from(args);
-    console.log(sumArray);
     const sum = sumArray.reduce((total, argument) => {
         return total + argument;
     }, 0)
@@ -9,7 +8,6 @@ function add(...args) {
 
 function substract(...args) {
     const substractArray = Array.from(args);
-    console.log(substractArray);
     const substract = substractArray.reduce((total, argument) => {
         return total - argument;
     }, (substractArray[0] * 2))
@@ -18,7 +16,6 @@ function substract(...args) {
 
 function multiply(...args) {
     const multiplyArray = Array.from(args);
-    console.log(multiplyArray);
     const multiply = multiplyArray.reduce((total, argument) => {
         return total * argument;
     }, 1)
@@ -46,19 +43,16 @@ buttons.forEach((button) => button.addEventListener('click', () => {
         if (operand == '=') {
             calculate();
             result.textContent = value;
-            console.log(value);
             operandCounter = 0;
         } else {
             if (operandCounter >= 1) {
                 calculate();
                 result.textContent = value;
-                console.log('first if');
                 value2 = ''
                     //operandCounter = 0;   
 
             } else {
                 operand2 = button.value;
-                console.log("second if");
                 result.textContent = operand2;
                 if (operandCounter = 0) { operandCounter = 1; } else { operandCounter++ };
             }
@@ -67,7 +61,6 @@ buttons.forEach((button) => button.addEventListener('click', () => {
     } else if (operand == '') {
         value = value + button.value;
         result.textContent = value;
-        console.log("value" + value);
     } else if (operand != '' && operand != '=') {
         value2 = value2 + button.value;
         result.textContent = value2;
@@ -131,5 +124,4 @@ function erase() {
     value2 = '';
     operand = '';
     operand2 = '';
-    console.log(erase);
 }
