@@ -42,17 +42,22 @@ buttons.forEach((button) => button.addEventListener('click', () => {
         operand = button.value;
         if (operand == '=') {
             calculate();
+            dotCounter = 0;
+            value = roundNumber(value, 4);
             result.textContent = value;
             operandCounter = 0;
         } else {
             if (operandCounter >= 1) {
                 calculate();
+                dotCounter = 0;
+                value = roundNumber(value, 4);
                 result.textContent = value;
                 value2 = ''
                     //operandCounter = 0;   
 
             } else {
                 operand2 = button.value;
+                dotCounter = 0;
                 result.textContent = operand2;
                 if (operandCounter = 0) { operandCounter = 1; } else { operandCounter++ };
             }
@@ -60,18 +65,16 @@ buttons.forEach((button) => button.addEventListener('click', () => {
         }
     } else if (operand == '') {
         if (button.value == '.') { dotCounter++ }
-        if (dotCounter >= 2) {} else {
+        if (button.value == '.' && dotCounter >= 2) {} else {
             value = value + button.value;
             result.textContent = value;
         }
     } else if (operand != '' && operand != '=') {
         if (button.value == '.') { dotCounter++ }
-        if (dotCounter >= 2) {} else {
-            value = value + button.value;
-            result.textContent = value;
+        if (button.value == '.' && dotCounter >= 2) { console.log('bad') } else {
+            value2 = value2 + button.value;
+            result.textContent = value2;
         }
-        value2 = value2 + button.value;
-        result.textContent = value2;
 
 
     }
@@ -132,4 +135,9 @@ function erase() {
     value2 = '';
     operand = '';
     operand2 = '';
+}
+
+//rounds numbers 
+function roundNumber(num, dec) {
+    return Math.round(num * Math.pow(10, dec)) / Math.pow(10, dec);
 }
