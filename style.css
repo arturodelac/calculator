@@ -145,8 +145,9 @@ button:hover {
         font-size: 4rem;
     }
     .big-container {
-        width: 100vw;
-        height: -webkit-fill-available;
         display: flex;
+    }
+    html {
+        height: -webkit-fill-available;
     }
 }
